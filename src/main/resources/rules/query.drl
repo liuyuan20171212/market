@@ -1,0 +1,6 @@
+package rules.isQuery
+import com.ityuan.market.bo.Person;
+
+query "person age is 30"
+    $p:Person(age==30)
+end

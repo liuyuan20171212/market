@@ -1,0 +1,28 @@
+//package rules.rulesHello22;
+//import com.ityuan.market.bo.Person;
+//global java.lang.Integer count;
+//
+//rule "aiwei001"
+//when
+//    $p:Person(age==13)
+//then
+//    count=90;
+//    System.out.println("----------------调用了规则aiwei001----------------"+count);
+//end
+//
+//rule "aiwei002"
+//when
+//    $p:Person(age>12)
+//then
+//    count=100;
+//    System.out.println("----------------调用了规则aiwei002----------------"+count);
+//end
+//
+//
+//rule "aiwei003"
+//when
+//    $p:Person(age<2000)
+//then
+//    count=110;
+//    System.out.println("----------------调用了规则aiwei003----------------"+count);
+//end

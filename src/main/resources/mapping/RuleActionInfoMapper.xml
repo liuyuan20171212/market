@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ityuan.market.dao.mapper.RuleActionInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.ityuan.market.dao.entity.RuleActionInfo" >
+    <id column="ACTION_ID" property="actionId" jdbcType="BIGINT" />
+    <result column="ACTION_TYPE" property="actionType" jdbcType="INTEGER" />
+    <result column="ACTION_NAME" property="actionName" jdbcType="VARCHAR" />
+    <result column="ACTION_DESC" property="actionDesc" jdbcType="VARCHAR" />
+    <result column="ACTION_CLASS" property="actionClass" jdbcType="VARCHAR" />
+    <result column="IS_EFFECT" property="isEffect" jdbcType="INTEGER" />
+    <result column="CRE_USER_ID" property="creUserId" jdbcType="BIGINT" />
+    <result column="CRE_TIME" property="creTime" jdbcType="TIMESTAMP" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ACTION_ID, ACTION_TYPE, ACTION_NAME, ACTION_DESC, ACTION_CLASS, IS_EFFECT, CRE_USER_ID, 
+    CRE_TIME, REMARK
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from rule_action_info
+    where ACTION_ID = #{actionId,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" parameterType="com.ityuan.market.dao.entity.RuleActionInfo" >
+    insert into rule_action_info (ACTION_ID, ACTION_TYPE, ACTION_NAME, 
+      ACTION_DESC, ACTION_CLASS, IS_EFFECT, 
+      CRE_USER_ID, CRE_TIME, REMARK
+      )
+    values (#{actionId,jdbcType=BIGINT}, #{actionType,jdbcType=INTEGER}, #{actionName,jdbcType=VARCHAR}, 
+      #{actionDesc,jdbcType=VARCHAR}, #{actionClass,jdbcType=VARCHAR}, #{isEffect,jdbcType=INTEGER}, 
+      #{creUserId,jdbcType=BIGINT}, #{creTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ityuan.market.dao.entity.RuleActionInfo" >
+    insert into rule_action_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="actionId != null" >
+        ACTION_ID,
+      </if>
+      <if test="actionType != null" >
+        ACTION_TYPE,
+      </if>
+      <if test="actionName != null" >
+        ACTION_NAME,
+      </if>
+      <if test="actionDesc != null" >
+        ACTION_DESC,
+      </if>
+      <if test="actionClass != null" >
+        ACTION_CLASS,
+      </if>
+      <if test="isEffect != null" >
+        IS_EFFECT,
+      </if>
+      <if test="creUserId != null" >
+        CRE_USER_ID,
+      </if>
+      <if test="creTime != null" >
+        CRE_TIME,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="actionId != null" >
+        #{actionId,jdbcType=BIGINT},
+      </if>
+      <if test="actionType != null" >
+        #{actionType,jdbcType=INTEGER},
+      </if>
+      <if test="actionName != null" >
+        #{actionName,jdbcType=VARCHAR},
+      </if>
+      <if test="actionDesc != null" >
+        #{actionDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="actionClass != null" >
+        #{actionClass,jdbcType=VARCHAR},
+      </if>
+      <if test="isEffect != null" >
+        #{isEffect,jdbcType=INTEGER},
+      </if>
+      <if test="creUserId != null" >
+        #{creUserId,jdbcType=BIGINT},
+      </if>
+      <if test="creTime != null" >
+        #{creTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ityuan.market.dao.entity.RuleActionInfo" >
+    update rule_action_info
+    <set >
+      <if test="actionType != null" >
+        ACTION_TYPE = #{actionType,jdbcType=INTEGER},
+      </if>
+      <if test="actionName != null" >
+        ACTION_NAME = #{actionName,jdbcType=VARCHAR},
+      </if>
+      <if test="actionDesc != null" >
+        ACTION_DESC = #{actionDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="actionClass != null" >
+        ACTION_CLASS = #{actionClass,jdbcType=VARCHAR},
+      </if>
+      <if test="isEffect != null" >
+        IS_EFFECT = #{isEffect,jdbcType=INTEGER},
+      </if>
+      <if test="creUserId != null" >
+        CRE_USER_ID = #{creUserId,jdbcType=BIGINT},
+      </if>
+      <if test="creTime != null" >
+        CRE_TIME = #{creTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ACTION_ID = #{actionId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ityuan.market.dao.entity.RuleActionInfo" >
+    update rule_action_info
+    set ACTION_TYPE = #{actionType,jdbcType=INTEGER},
+      ACTION_NAME = #{actionName,jdbcType=VARCHAR},
+      ACTION_DESC = #{actionDesc,jdbcType=VARCHAR},
+      ACTION_CLASS = #{actionClass,jdbcType=VARCHAR},
+      IS_EFFECT = #{isEffect,jdbcType=INTEGER},
+      CRE_USER_ID = #{creUserId,jdbcType=BIGINT},
+      CRE_TIME = #{creTime,jdbcType=TIMESTAMP},
+      REMARK = #{remark,jdbcType=VARCHAR}
+    where ACTION_ID = #{actionId,jdbcType=BIGINT}
+  </update>
+</mapper>
